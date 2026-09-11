@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI-Sticker</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <main class="wrap">
+    <header>
+      <h1>AI-Sticker</h1>
+      <p id="subtitle">输入主题 → AI 规划表情 → 静图 / 动图 / 投稿配套素材一键产出</p>
+    </header>
+
+    <section class="panel">
+      <label for="theme">主题 <span>*</span></label>
+      <input id="theme" type="text" placeholder="例如：加班摸鱼、猫猫上班、期末周" />
+
+      <label for="character">角色设定（可改）</label>
+      <textarea id="character" rows="4"></textarea>
+
+      <button id="go" type="button">生成完整表情包</button>
+      <p class="hint" id="mode-hint">完整流程含图生视频，通常需要较长时间，请保持页面打开。</p>
+
+      <label for="jobId">续跑任务 ID</label>
+      <div class="row">
+        <input id="jobId" type="text" placeholder="例如：20260820_154129_827" />
+        <button id="resume" type="button" class="secondary">从断点继续</button>
+      </div>
+      <p class="hint">中断后填入上次的 job_id，会跳过已有文件，从缺失步骤接着跑。</p>
+    </section>
+
+    <section class="panel" id="progress-panel" hidden>
+      <h2>进度</h2>
+      <div id="status" class="status">等待中…</div>
+      <ul id="logs"></ul>
+    </section>
+
+    <section class="panel" id="result-panel" hidden>
+      <h2>结果</h2>
+      <div class="actions">
+        <a id="zip-link" class="btn" href="#" download>下载 ZIP</a>
+      </div>
+      <div id="gallery" class="gallery"></div>
+      <div id="extras" class="extras"></div>
+    </section>
+  </main>
+  <script src="/static/app.js"></script>
+</body>
+</html>
